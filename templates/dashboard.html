@@ -1,0 +1,119 @@
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<body>
+    <canvas id="nbVisitByDomain" style="width:100%;max-width:1500px;margin:auto;"></canvas>
+    <br><br><br>
+    <canvas id="nbVisitUnauthorizedByIP" style="width:100%;max-width:1500px;margin:auto;"></canvas>
+
+    <script>
+        new Chart("nbVisitByDomain", {
+            type: 'line',
+            data: {
+                {% autoescape false %}
+                    labels: {{ nbVisitByDomainLabels }},
+                {% endautoescape %}
+                datasets: [{
+                    data: {{ nbVisitByDomainValues }},
+                    borderColor: "#3e95cd",
+                    fill: false
+                }]
+            },
+            options: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: "Nombre de visite par site web"
+            }
+        }
+        });
+
+        new Chart("nbVisitUnauthorizedByIP", {
+            type: 'bar',
+            data: {
+                {% autoescape false %}
+                    labels: {{ nbVisitUnauthorizedByIPLabels }},
+                {% endautoescape %}
+                datasets: [{
+                    data: {{ nbVisitUnauthorizedByIPValues }},
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)',
+                        'rgba(255, 0, 0, 0.2)',
+                        'rgba(0, 255, 0, 0.2)',
+                        'rgba(0, 0, 255, 0.2)',
+                        'rgba(128, 128, 0, 0.2)',
+                        'rgba(0, 128, 128, 0.2)',
+                        'rgba(255, 128, 0, 0.2)',
+                        'rgba(128, 0, 255, 0.2)',
+                        'rgba(0, 128, 0, 0.2)',
+                        'rgba(128, 0, 0, 0.2)',
+                        'rgba(0, 0, 128, 0.2)',
+                        'rgba(128, 128, 128, 0.2)',
+                        'rgba(64, 64, 64, 0.2)',
+                        'rgba(192, 192, 192, 0.2)',
+                        'rgba(255, 255, 0, 0.2)',
+                        'rgba(0, 255, 255, 0.2)',
+                        'rgba(255, 0, 255, 0.2)',
+                        'rgba(192, 128, 64, 0.2)',
+                        'rgba(64, 192, 128, 0.2)',
+                        'rgba(128, 64, 192, 0.2)',
+                        'rgba(128, 192, 64, 0.2)',
+                        'rgba(64, 128, 192, 0.2)',
+                        'rgba(192, 64, 128, 0.2)',
+                        'rgba(255, 192, 0, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)',
+                        'rgb(255, 0, 0)',
+                        'rgb(0, 255, 0)',
+                        'rgb(0, 0, 255)',
+                        'rgb(128, 128, 0)',
+                        'rgb(0, 128, 128)',
+                        'rgb(255, 128, 0)',
+                        'rgb(128, 0, 255)',
+                        'rgb(0, 128, 0)',
+                        'rgb(128, 0, 0)',
+                        'rgb(0, 0, 128)',
+                        'rgb(128, 128, 128)',
+                        'rgb(64, 64, 64)',
+                        'rgb(192, 192, 192)',
+                        'rgb(255, 255, 0)',
+                        'rgb(0, 255, 255)',
+                        'rgb(255, 0, 255)',
+                        'rgb(192, 128, 64)',
+                        'rgb(64, 192, 128)',
+                        'rgb(128, 64, 192)',
+                        'rgb(128, 192, 64)',
+                        'rgb(64, 128, 192)',
+                        'rgb(192, 64, 128)',
+                        'rgb(255, 192, 0)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: "Nombre de visite non autorisé par IP"
+                }
+            }
+        });
+
+    </script>

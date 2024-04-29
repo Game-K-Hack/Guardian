@@ -1,0 +1,5 @@
+blacklist:
+- .{0,}discord\.com.{0,}
+redirect:
+  http://127.0.0.1:5432:
+  - .{0,}youtube\.com.{0,}

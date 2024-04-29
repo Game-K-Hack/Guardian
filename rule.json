@@ -1,0 +1,13 @@
+{
+    "blacklist":[
+        "discord.com"
+    ], 
+    "redirect": {
+        "google.com":[
+            "youtube.com", 
+            "gmail.com", 
+            "yahoo.com", 
+            "bing.com"
+        ]
+    }
+}
