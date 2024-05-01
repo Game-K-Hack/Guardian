@@ -12,6 +12,8 @@ import os
 # import logging
 # logging.basicConfig(level=logging.CRITICAL)
 
+LOG = True
+
 fonts = ["font/" + i.replace(".woff2", "") for i in os.listdir("./asset") if i.endswith(".woff2")]
 
 with open("./rule.yml", "r") as confile:
@@ -43,4 +45,5 @@ def request(flow: http.HTTPFlow) -> None:
 
 if __name__ == '__main__':
     threading.Thread(target=logger.start).start()
-    os.system('mitmdump --quiet -s ' + __file__) # --certs=C:/Users/Game_K/.mitmproxy/mitmproxy-ca-cert.pem
+    prog = "mitmproxy" if LOG else "mitmdump --quiet"
+    os.system(prog + " -s " + __file__) # --certs=C:/Users/Game_K/.mitmproxy/mitmproxy-ca-cert.cer
