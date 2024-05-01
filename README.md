@@ -30,7 +30,7 @@
 
 ## Description
 
-C'est un simple proxy permettant de controler en redirigant des patterns d'url défini via des regex dans le fichier `rule.yml`, il peut aussi bloquer des urls. A chaque URL bloqué ou rediriger, des logs sont créer dans un dossier `data`.
+It's a simple proxy for controlling and redirecting url patterns defined via regexes in the `rule.yml` file, and can also block urls. For each URL blocked or redirected, logs are created in a `data` folder.
 
 ## Installation
 
@@ -38,17 +38,17 @@ For this script to work, you must have Python in version 3.9 *(or a higher versi
 
 #### Windows
 
-Une fois la librairie `mitmproxy` installé, un dossier est créée dans votre dossier utilisateur (pour Windows): `C:/Users/%username%/.mitmproxy`. Installer le certificat `mitmproxy-ca-cert.cer` dans le dossier `Autorités de certification racines de confiance`.
+Once the `mitmproxy` library has been installed, a folder is created in your user folder (for Windows): `C:/Users/%username%/.mitmproxy`. Install the `mitmproxy-ca-cert.cer` certificate in the `Trusted Root Certification Authorities` folder.
 
 #### Linux
 
-Je ne sais pas, mais si quelqu'un sais comment faire je veux bien savoir pour compléter ce README.
+I don't know, but if anyone knows how to do it, I'd like to know how to complete this README.
 
 ## Setting
 
-Pour activer les logs *(`LOG=True`)* en modifiant la variable `LOG` dans le fichier `proxy.py`.
+Activate logs *(`LOG=True`)* by modifying the `LOG` variable in the `proxy.py` file.
 
-Pour modifier les règles de redirection et de blocage, il faut modifier le fichier `rule.yml`. Pour bloquer une URL ajouter l'adresse dans la catégorie `blacklist`, et pour ajouter des URL à rediriger, ajouter les adresses dans la catégorie `redirect`.
+To modify the redirection and blocking rules, modify the `rule.yml` file. To block a URL, add the address to the `blacklist` category, and to add URLs to redirect, add the addresses to the `redirect` category.
 
 ```yaml
 blacklist:
@@ -57,12 +57,12 @@ redirect:
   http://127.0.0.1:5432:
   - .{0,}youtube\.com.{0,}
 ```
-*Dans cette exemple, les URLs avec le domaine `discord.com` seront bloquées, et les URLs avec le domaine `youtube.com` seront redirigé vers `http://127.0.0.1:5432`.*
+*In this example, URLs with the domain `discord.com` will be blocked, and URLs with the domain `youtube.com` will be redirected to `http://127.0.0.1:5432`.*
 
-Dans ce proxy il y a une page publié sur le port `5432` *(vous pouvez modifier le port dans le fichier `logger.py`)* qui indique que cette adresse est bloqué par le proxy.
+In this proxy there is a page published on port `5432` *(you can change the port in the `logger.py` file)* which indicates that this address is blocked by the proxy.
 
-![403](asset/403.png)
+![403](asset/screenshot/403.png)
 
 ## Functioning
 
-<img src="./asset/screenshot/functioning-en.png" alt="Screenshot" />
+<img src="asset/screenshot/functioning-en.png" alt="Screenshot" />
